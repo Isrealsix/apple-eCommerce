@@ -1,0 +1,21 @@
+.navbar {
+	position: absolute;
+	top: 3rem;
+	right: 10%;
+
+	&__link {
+		font-size: 2rem;
+		color: var(--color-black);
+		transition: background-color 0.3s;
+	}
+
+	&__list {
+		display: inline-block;
+		margin: 0 3rem;
+		transition: transform 0.5s;
+
+		&:hover {
+			transform: scale(1.5);
+		}
+	}
+}
