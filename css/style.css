@@ -4,6 +4,36 @@
   --color-white: #fff;
   --color-black: #000; }
 
+.cube__front-side, .cube__back-side {
+  width: 100%;
+  height: 100%;
+  background-color: #fee;
+  position: absolute;
+  box-shadow: inset 0.1rem 0.1rem 0.1rem #ddd, inset -0.1rem -0.1rem 0.1rem #ddd; }
+
+.cube__front-side::before, .cube__front-side::after {
+  content: '';
+  width: 100%;
+  height: 10rem;
+  background-color: #fee;
+  position: absolute;
+  box-shadow: inset 0.1rem 0.1rem 0.1rem #ddd, inset -0.1rem -0.1rem 0.1rem #ddd; }
+
+.cube__back-side::before, .cube__back-side::after {
+  content: 'iphone';
+  width: 10rem;
+  height: 100%;
+  background-color: #fee;
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 300;
+  color: #ec1919;
+  box-shadow: inset 0.1rem 0.1rem 0.1rem #ddd, inset -0.1rem -0.1rem 0.1rem #ddd; }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -62,6 +92,97 @@ html {
     transition: opacity 1s; }
   .slideshow div.change {
     opacity: 1; }
+
+.cube {
+  width: 30rem;
+  height: 55rem;
+  transform-style: preserve-3d;
+  transform: rotateX(0) rotateY(20deg) rotateZ(0);
+  position: relative;
+  top: -2rem;
+  transition: transform 0.5s; }
+  .cube-wrapper {
+    perspective: 100rem; }
+  .cube__front-side {
+    padding: 2.5rem;
+    transform: translateZ(5rem);
+    transform-style: preserve-3d; }
+    .cube__front-side::before {
+      top: 0;
+      left: 0;
+      transform-origin: top;
+      transform: rotateX(-90deg); }
+    .cube__front-side::after {
+      bottom: 0;
+      left: 0;
+      transform-origin: bottom;
+      transform: rotateX(90deg); }
+  .cube__front-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; }
+  .cube__back-side {
+    transform: translateZ(-5rem);
+    transform-style: preserve-3d; }
+    .cube__back-side::before {
+      left: 0;
+      transform-origin: left;
+      transform: rotateY(-90deg); }
+    .cube__back-side::after {
+      right: 0;
+      transform-origin: right;
+      transform: rotateY(90deg); }
+    .cube__back-side i {
+      font-size: 12rem;
+      color: var(--color-primary);
+      text-shadow: 0.1rem 0.1rem 0.2rem #aaa, -0.1rem -0.1rem 0.2rem #aaa;
+      transform: rotateY(180deg); }
+
+.controls {
+  position: absolute;
+  bottom: -15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 10rem;
+  width: 10rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 50%;
+  border: 0.1rem solid rgba(0, 0, 0, 0.8); }
+  .controls a {
+    padding: 0.7rem;
+    position: absolute; }
+    .controls a i {
+      transition: opacity 0.5s; }
+      .controls a i:hover {
+        opacity: 1; }
+  .controls a:nth-child(1) {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); }
+  .controls a:nth-child(2) {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); }
+  .controls a:nth-child(3) {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%); }
+  .controls a:nth-child(4) {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%); }
+  .controls a:nth-child(5) {
+    top: 10%;
+    right: 10%;
+    transform: rotate(45deg); }
+  .controls a:nth-child(6) {
+    bottom: 10%;
+    left: 10%;
+    transform: rotate(45deg); }
+  .controls i {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    opacity: 0.5; }
 
 .section-1 {
   width: 100%;

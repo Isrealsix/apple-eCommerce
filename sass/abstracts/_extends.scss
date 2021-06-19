@@ -1,0 +1,32 @@
+%cube-side-placeholder {
+	width: 100%;
+	height: 100%;
+	background-color: #fee;
+	position: absolute;
+	@include phoneShadows;
+}
+
+%top-bottom-placeholder {
+	content: '';
+	width: 100%;
+	height: 10rem;
+	background-color: #fee;
+	position: absolute;
+	@include phoneShadows;
+}
+
+%left-right-placeholder {
+	content: 'iphone';
+	width: 10rem;
+	height: 100%;
+	background-color: #fee;
+	position: absolute;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2rem;
+	font-weight: 300;
+	color: #ec1919;
+	@include phoneShadows;
+}

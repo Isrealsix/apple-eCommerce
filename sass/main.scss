@@ -1,4 +1,6 @@
 @import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/extends';
 
 @import 'base/base';
 @import 'base/typography';
@@ -7,7 +9,8 @@
 @import 'components/logo';
 @import 'components/navbar';
 @import 'components/slideshow';
-
+@import 'components/cube';
+@import 'components/controls';
 @import 'layouts/header';
 
 @import 'pages/home';
