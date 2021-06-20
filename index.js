@@ -117,3 +117,21 @@ const toggleCube = event => {
 // toggle cube and pass in required Expected events;
 toggleCube(mouseover);
 toggleCube(mouseleave);
+
+// Section 3
+
+const section3 = document.querySelector('.section-3');
+// Check to see if page is scrolled up to half of the section
+// pageYOffset is the space we've scrolled past
+// innerHeight is the current visible "VH"
+// offsetTop is the distance from the top of the page to the section
+// offsetHeight is the height of the section
+// offsetTop + offsetHeight / 2 is the half of the section
+window.addEventListener('scroll', function () {
+	if (
+		window.pageYOffset + window.innerHeight >=
+		section3.offsetTop + section3.offsetHeight / 2
+	) {
+		section3.classList.add('open');
+	}
+});
