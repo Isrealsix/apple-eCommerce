@@ -163,19 +163,18 @@ const scroll = (direction, targetBtn) => {
 
 	// Xaxis for bands;
 	if (xAxis.includes(direction)) {
-		xBands += margin[direction]; // here
-		hideControlBtns(xBands, targetBtn); // here
-		console.log(xBands);
+		xBands += margin[direction];
+		hideControlBtns(xBands, targetBtn);
 		watchBands.style.marginLeft = `${xBands}rem`;
 	} else {
 		// Yaxis for cases;
 		yCases += margin[direction];
 		hideControlBtns(yCases, targetBtn);
-		console.log(yCases, targetBtn);
 		watchCases.style.marginTop = `${yCases}rem`;
 	}
 };
 
+// Keep track of the previous clicked
 let xAxisExceededBtn;
 let yAxisExceededBtn;
 
@@ -183,7 +182,6 @@ const hideControlBtns = (axis, targetBtn) => {
 	// check for limits on the x and y axis
 	if (axis === 280 || axis === -280) {
 		targetBtn.classList.add('hide');
-		console.log('axis', targetBtn);
 		if (targetBtn.classList.contains('x-Axis')) {
 			xAxisExceededBtn = targetBtn;
 			return;
@@ -193,23 +191,23 @@ const hideControlBtns = (axis, targetBtn) => {
 	}
 
 	// check the previous clicked button and show it when lesser than the highest
-	if (xAxisExceededBtn) {
-		if (xBands > -280 && xBands < 280) {
-			xAxisExceededBtn.classList.remove('hide');
-		}
-	}
+	xAxisExceededBtn && showArrow(xAxisExceededBtn);
+	yAxisExceededBtn && showArrow(yAxisExceededBtn);
+};
 
-	if (yAxisExceededBtn) {
-		if (yCases > -280 && yCases < 280) {
-			yAxisExceededBtn.classList.remove('hide');
-		}
+const showArrow = button => {
+	let direction;
+	if (button.classList.contains('x-Axis')) direction = xBands;
+	if (button.classList.contains('y-Axis')) direction = yCases;
+
+	// if below limit, show btn
+	if (direction > -280 && direction < 280) {
+		button.classList.remove('hide');
 	}
-	// if up to limit, hide btn
 };
 
 const getDirection = target => {
 	// scroll
-	console.log(target);
 	target === btnTopCtrl && scroll('Top', target);
 	target === btnRightCtrl && scroll('Right', target);
 	target === btnDownCtrl && scroll('Bottom', target);
