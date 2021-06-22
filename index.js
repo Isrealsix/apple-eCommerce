@@ -138,9 +138,12 @@ window.addEventListener('scroll', function () {
 });
 
 // Section 4 : watches
-const [watchBands, watchCases] = document.querySelectorAll(
-	'.watch__bands, .watch__cases'
+const [iphoneBtns, watchBands, watchCases] = document.querySelectorAll(
+	'.iphone-btns, .watch__bands, .watch__cases'
 );
+// Prevent default on the Iphone buttons
+iphoneBtns.addEventListener('click', ev => ev.preventDefault());
+
 const watchCtrlBtns = document.querySelector('.watch-ctrl-btns');
 const [...btnDirections] = document.querySelectorAll('.watch-control');
 const [btnTopCtrl, btnRightCtrl, btnDownCtrl, btnLeftCtrl] = btnDirections;

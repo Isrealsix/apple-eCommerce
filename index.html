@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/icons/home-icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="index.js" defer></script>
@@ -15,7 +16,7 @@
     <div class="container">
 
         <!-- section 1 -->
-        <section class="section-1">
+        <section class="section-1" id="home">
             <!-- logo -->
             <a href="#" class="logo">
                 <i class="fab fa-apple"></i>
@@ -24,10 +25,10 @@
             <!-- Navbar -->
             <nav class="navbar">
                 <ul>
-                    <li class="navbar__list"><a href="#" class="navbar__link">iPhonea 12</a></li>
-                    <li class="navbar__list"><a href="#" class="navbar__link">Macbook Air</a></li>
-                    <li class="navbar__list"><a href="#" class="navbar__link">Watch</a></li>
-                    <li class="navbar__list"><a href="#" class="navbar__link">AirPods</a></li>
+                    <li class="navbar__list"><a href="#iphones" class="navbar__link">iPhonea 12</a></li>
+                    <li class="navbar__list"><a href="#macbooks" class="navbar__link">Macbook Air</a></li>
+                    <li class="navbar__list"><a href="#watches" class="navbar__link">Watch</a></li>
+                    <li class="navbar__list"><a href="#airpods" class="navbar__link">AirPods</a></li>
                 </ul>
             </nav>
 
@@ -66,7 +67,7 @@
             <div class="slideshow"></div>
         </section>
 
-        <section class="section-2">
+        <section class="section-2" id="iphones">
             <h1 class="section-2__heading">iPhone 12</h1>
 
             <!-- iPhones display -->
@@ -83,7 +84,7 @@
         </section>
 
         <!-- Section 3 -->
-        <section class="section-3 center">
+        <section class="section-3 center" id="macbooks">
             <h1 class="section-3__heading">MacBook Air</h1>
 
             <div class="section-3__content center">
@@ -109,7 +110,7 @@
         </section>
 
         <!-- Section 4 -->
-        <section class="section-4 center">
+        <section class="section-4 center" id="watches">
             <!-- watches -->
             <div class="watch center">
                 <!-- Watch bands -->
@@ -154,6 +155,48 @@
 
             <!-- Watch button -->
             <button class="watch-btn">Buy Now</button>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="section-5 center" id="airpods">
+            <!-- Contents -->
+            <div class="section-5__airpods">
+                <!-- section-5-heading -->
+                <h1 class="section-5__airpods-heading">AirPods</h1>
+
+                <!-- Images -->
+                <img src="images/AirPods/airpods-1.png" class="airpods-img">
+                <img src="images/AirPods/airpods-2.png" class="airpods-img">
+
+                <div class="section-5__airpods-buttons">
+                    <button class="airpods-btn">Learn More</button>
+                    <button class="airpods-btn">Buy</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="section-6 center">
+            <div class="section-6__icons">
+                <a href="#home" class="section-6__icons-link">
+                    <img src="images/icons/home-icon.png">
+                </a>
+                <a href="#iphones" class="section-6__icons-link">
+                    <img src="images/icons/iphone-icon.png">
+                </a>
+                <a href="#macbooks" class="section-6__icons-link">
+                    <img src="images/icons/macbook-icon.png">
+                </a>
+                <a href="#watches" class="section-6__icons-link">
+                    <img src="images/icons/watch-icon.png">
+                </a>
+                <a href="#airpods" class="section-6__icons-link">
+                    <img src="images/icons/airpods-icon.png">
+                </a>
+            </div>
+            <p class="section-6__copyright">
+                Copyright &copy; @Isrealsix All Rights Reserved
+            </p>
         </section>
     </div>
 </body>
