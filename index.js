@@ -92,6 +92,7 @@ const ctrl = direction => {
 // if target is not included in the directions array, use the Guard clause and return;
 controls.addEventListener('click', function (ev) {
 	if (!directions.includes(ev.target)) return;
+	ev.preventDefault();
 	const exact = ev.target.closest('.fas');
 	ctrl(exact);
 });
@@ -134,4 +135,92 @@ window.addEventListener('scroll', function () {
 	) {
 		section3.classList.add('open');
 	}
+});
+
+// Section 4 : watches
+const [watchBands, watchCases] = document.querySelectorAll(
+	'.watch__bands, .watch__cases'
+);
+const watchCtrlBtns = document.querySelector('.watch-ctrl-btns');
+const [...btnDirections] = document.querySelectorAll('.watch-control');
+const [btnTopCtrl, btnRightCtrl, btnDownCtrl, btnLeftCtrl] = btnDirections;
+
+// console.log(watchCtrlBtns);
+
+let xBands = 0;
+let yCases = 0;
+
+const scroll = (direction, targetBtn) => {
+	// const directions = ['top', 'right', 'down', 'left'];
+	const margin = {
+		Top: -70,
+		Bottom: 70,
+		Right: 70,
+		Left: -70,
+	};
+
+	const xAxis = ['Left', 'Right'];
+
+	// Xaxis for bands;
+	if (xAxis.includes(direction)) {
+		xBands += margin[direction]; // here
+		hideControlBtns(xBands, targetBtn); // here
+		console.log(xBands);
+		watchBands.style.marginLeft = `${xBands}rem`;
+	} else {
+		// Yaxis for cases;
+		yCases += margin[direction];
+		hideControlBtns(yCases, targetBtn);
+		console.log(yCases, targetBtn);
+		watchCases.style.marginTop = `${yCases}rem`;
+	}
+};
+
+let xAxisExceededBtn;
+let yAxisExceededBtn;
+
+const hideControlBtns = (axis, targetBtn) => {
+	// check for limits on the x and y axis
+	if (axis === 280 || axis === -280) {
+		targetBtn.classList.add('hide');
+		console.log('axis', targetBtn);
+		if (targetBtn.classList.contains('x-Axis')) {
+			xAxisExceededBtn = targetBtn;
+			return;
+		}
+
+		yAxisExceededBtn = targetBtn;
+	}
+
+	// check the previous clicked button and show it when lesser than the highest
+	if (xAxisExceededBtn) {
+		if (xBands > -280 && xBands < 280) {
+			xAxisExceededBtn.classList.remove('hide');
+		}
+	}
+
+	if (yAxisExceededBtn) {
+		if (yCases > -280 && yCases < 280) {
+			yAxisExceededBtn.classList.remove('hide');
+		}
+	}
+	// if up to limit, hide btn
+};
+
+const getDirection = target => {
+	// scroll
+	console.log(target);
+	target === btnTopCtrl && scroll('Top', target);
+	target === btnRightCtrl && scroll('Right', target);
+	target === btnDownCtrl && scroll('Bottom', target);
+	target === btnLeftCtrl && scroll('Left', target);
+};
+
+watchCtrlBtns.addEventListener('click', function (ev) {
+	ev.preventDefault();
+	const btnTarget = ev.target.closest('.watch-control');
+	if (!btnDirections.includes(btnTarget)) return;
+
+	// get direction
+	getDirection(btnTarget);
 });

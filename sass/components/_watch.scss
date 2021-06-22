@@ -3,6 +3,7 @@
 	height: 100%;
 	position: relative;
 	overflow: hidden;
+	opacity: 1;
 
 	& > div {
 		position: absolute;
@@ -16,6 +17,11 @@
 
 	&__cases {
 		flex-direction: column;
+		transition: margin-top 1s;
+	}
+
+	&__bands {
+		transition: margin-left 1s;
 	}
 
 	&__case--img {
@@ -59,6 +65,11 @@
 			top: 50%;
 			left: 2rem;
 			transform: translateY(-50%);
+		}
+
+		&.hide {
+			opacity: 0;
+			visibility: hidden;
 		}
 	}
 

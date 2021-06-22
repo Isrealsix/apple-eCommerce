@@ -278,7 +278,8 @@ html {
   width: 100%;
   height: 100%;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  opacity: 1; }
   .watch > div {
     position: absolute; }
   .watch__band--img {
@@ -286,7 +287,10 @@ html {
     width: 35rem;
     object-fit: contain; }
   .watch__cases {
-    flex-direction: column; }
+    flex-direction: column;
+    transition: margin-top 1s; }
+  .watch__bands {
+    transition: margin-left 1s; }
   .watch__case--img {
     height: 35rem;
     width: 35rem;
@@ -316,6 +320,9 @@ html {
       top: 50%;
       left: 2rem;
       transform: translateY(-50%); }
+    .watch-control.hide {
+      opacity: 0;
+      visibility: hidden; }
   .watch-btn {
     position: absolute;
     bottom: 30vh;
