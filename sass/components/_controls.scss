@@ -9,6 +9,10 @@
 	border-radius: 50%;
 	border: 0.1rem solid rgba(0, 0, 0, 0.8);
 
+	@include respond(phone-land) {
+		display: none;
+	}
+
 	& a {
 		padding: 0.7rem;
 		position: absolute;

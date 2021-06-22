@@ -2,4 +2,17 @@ html {
 	font-family: 'Work Sans', sans-serif;
 	font-size: 62.5%;
 	scroll-behavior: smooth;
+
+	// <= 1500px = 93.75em
+	@include respond(large-screen) {
+		font-size: 45%;
+	}
+
+	@include respond(tab-land) {
+		font-size: 40%;
+	}
+
+	@include respond(tiny-screen) {
+		font-size: 35%;
+	}
 }

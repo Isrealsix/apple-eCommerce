@@ -88,5 +88,17 @@
 		font-size: 1.6rem;
 		font-weight: 200;
 		cursor: pointer;
+
+		@include respond(tab-land) {
+			right: 25%;
+		}
+
+		@include respond(phone-land) {
+			right: 15%;
+		}
+
+		@include respond(tiny-screen) {
+			right: 5%;
+		}
 	}
 }

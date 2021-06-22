@@ -3,8 +3,23 @@
 	top: 3rem;
 	left: 3rem;
 
+	@include respond(phone-land) {
+		top: 0;
+		left: 2rem;
+	}
+
+	@include respond(phone-port) {
+		top: 10rem;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
 	& i {
 		font-size: 10rem;
 		color: rgba(0, 0, 0, 0.8);
+
+		@include respond(phone-land) {
+			font-size: 8rem;
+		}
 	}
 }

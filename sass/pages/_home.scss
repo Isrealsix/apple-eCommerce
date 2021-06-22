@@ -11,11 +11,28 @@
 	&__banner {
 		flex-direction: column;
 
+		@include respond(phone-land) {
+			position: absolute;
+		}
+
 		& h1 {
 			font-size: 13rem;
 			font-weight: 300;
 			text-transform: uppercase;
 			letter-spacing: 0.5rem;
+
+			@include respond(tab-land) {
+				font-size: 8rem;
+			}
+
+			@include respond(phone-land) {
+				&::first-letter {
+					opacity: 0;
+					visibility: hidden;
+				}
+				position: relative;
+				left: -5rem;
+			}
 		}
 
 		& p {
@@ -23,6 +40,14 @@
 			font-weight: 400;
 			letter-spacing: 0.1rem;
 			margin: 6rem 0 4rem 0;
+
+			@include respond(tab-land) {
+				font-size: 3rem;
+			}
+
+			@include respond(tiny-screen) {
+				text-align: center;
+			}
 		}
 
 		& span {
@@ -67,6 +92,21 @@
 					0 50%,
 					30% 0
 				);
+
+				@include respond(phone-land) {
+					clip-path: polygon(
+						50% 0%,
+						81% 5%,
+						100% 0,
+						100% 100%,
+						80% 95%,
+						50% 100%,
+						20% 95%,
+						0 100%,
+						0 0,
+						23% 5%
+					);
+				}
 			}
 		}
 	}
@@ -87,6 +127,10 @@
 		color: var(--color-black);
 		margin-bottom: 5rem;
 		position: relative;
+
+		@include respond(phone-port) {
+			font-size: 8rem;
+		}
 	}
 
 	&__heading::before {
@@ -113,6 +157,14 @@
 		);
 		border-radius: 0.5rem;
 
+		@include respond(phone-land) {
+			height: 70vh;
+			width: 70vw;
+		}
+
+		@include respond(tiny-screen) {
+			width: 75vw;
+		}
 		&:hover {
 			& .iphone-img-2 {
 				opacity: 1;
@@ -194,6 +246,14 @@
 		font-weight: 200;
 		color: var(--color-primary);
 		margin-bottom: 15rem;
+
+		@include respond(phone-port) {
+			font-size: 8rem;
+		}
+
+		@include respond(tiny-screen) {
+			font-size: 6rem;
+		}
 	}
 }
 
@@ -223,6 +283,10 @@
 			font-weight: 300;
 			color: var(--color-white);
 			text-shadow: 0.1rem 0.1rem 0 #999;
+
+			@include respond(tab-port) {
+				font-size: 12rem;
+			}
 		}
 
 		&-buttons {
@@ -231,6 +295,11 @@
 			left: 50%;
 			transform: translate(-50%, -50%);
 			margin-top: 5rem;
+
+			@include respond(phone-port) {
+				width: 50rem;
+				text-align: center;
+			}
 
 			& .airpods-btn {
 				width: 15rem;
@@ -251,6 +320,12 @@
 				&:active {
 					transform: translateY(0.3rem);
 				}
+
+				@include respond(phone-land) {
+					background-color: var(--color-white);
+					color: var(--color-primary);
+					box-shadow: 0.1rem 0.1rem 0.1rem #ddd;
+				}
 			}
 		}
 
@@ -259,9 +334,19 @@
 			height: 100%;
 			object-fit: contain;
 
-			&.airpods-img:nth-child(odd) {
+			&.airpods-img:nth-child(3) {
 				background-color: var(--color-primary);
 				border-radius: 0.4rem;
+			}
+
+			@include respond(phone-land) {
+				&.airpods-img:nth-child(2) {
+					display: none;
+				}
+
+				&.airpods-img:nth-child(3) {
+					width: 100%;
+				}
 			}
 		}
 	}
@@ -275,8 +360,20 @@
 	&__icons-link {
 		margin: 0 5rem;
 
+		@include respond(phone-land) {
+			margin: 0 2rem;
+		}
+
 		& img {
 			width: 10rem;
+
+			@include respond(phone-port) {
+				width: 8rem;
+			}
+
+			@include respond(tiny-screen) {
+				width: 6rem;
+			}
 		}
 	}
 

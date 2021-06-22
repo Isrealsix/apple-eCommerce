@@ -3,16 +3,30 @@
 	top: 3rem;
 	right: 10%;
 
+	@include respond(tiny-screen) {
+		left: 50%;
+		transform: translateX(-50%);
+		width: max-content;
+	}
+
 	&__link {
 		font-size: 2rem;
 		color: var(--color-black);
 		transition: background-color 0.3s;
+
+		@include respond(tab-land) {
+			font-weight: 500;
+		}
 	}
 
 	&__list {
 		display: inline-block;
 		margin: 0 3rem;
 		transition: transform 0.5s;
+
+		@include respond(phone-port) {
+			margin: 0 1.5rem;
+		}
 
 		&:hover {
 			transform: scale(1.5);

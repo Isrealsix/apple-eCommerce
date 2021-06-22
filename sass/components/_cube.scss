@@ -7,8 +7,16 @@
 	position: relative;
 	top: -2rem;
 	transition: transform 0.5s;
+
+	@include respond(phone-land) {
+		top: 3rem;
+	}
+
 	&-wrapper {
 		perspective: 100rem;
+		@include respond(phone-land) {
+			opacity: 0.7;
+		}
 	}
 
 	&__front-side {
